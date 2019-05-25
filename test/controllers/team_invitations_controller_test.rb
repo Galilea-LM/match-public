@@ -14,7 +14,7 @@ class TeamInvitationControllerTest < ActionDispatch::IntegrationTest
       email: 'example_user@michelado.io'
     }
 
-    assert_equal flash[:alert], I18n.t('team.invalid_user')
+    assert_equal I18n.t('team.messages.user_invited'), flash[:notice]
   end
 
   test 'user can invite a new user' do
