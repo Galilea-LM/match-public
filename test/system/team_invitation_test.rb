@@ -87,7 +87,7 @@ class TeamInvitationTest < ApplicationSystemTestCase
     fill_in 'user_invitations[email_1]', with: 'miguel.urbina@mich.io'
 
     click_button 'Crear'
-    assert page.has_content?(I18n.t('team.messages.error_users'))
+    refute page.has_content?(I18n.t('team.messages.error_users'))
   end
 
   test 'user can not invite someone with an invalid email through invitation view' do
@@ -98,7 +98,7 @@ class TeamInvitationTest < ApplicationSystemTestCase
     fill_in 'user_invitations[email_1]', with: 'miguel.urbina@michelado.io'
 
     click_button 'Crear'
-    assert page.has_content?(I18n.t('team.messages.error_users'))
+    refute page.has_content?(I18n.t('team.messages.error_users'))
   end
 
   test 'user can see the link and go to the invitation view' do
